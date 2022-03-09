@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int n; cin>>n;
+    int a1[n/2+1],a2[n/2];
+    if(n%4==3){
+        cout<<"YES\n";
+        int c1=0,c2=0;
+        for(int i=1;i<n;i+=2){
+            if((i+1)%4!=0){
+                a1[c1]=i;
+                a1[c1+1]=i+1;
+                c1+=2;
+            }
+            else{
+                a2[c2]=i;
+                a2[c2+1]=i+1;
+                c2+=2;
+            }
+        }
+        a2[c2]=n;
+        // printing
+        cout<<c1<<"\n";
+        for(int i=0;i<c1;i++) cout<<a1[i]<<" ";
+        cout<<"\n"<<c2+1<<"\n";
+        for(int i=0;i<=c2;i++) cout<<a2[i]<<" ";
+ 
+    }
+    else if(n%4==0){
+      cout<<"YES\n";
+        int c1=0,c2=0;
+        for(int i=1;i<=n;i++){
+            int t=i%4;
+            if(t==0 || t==1){
+                a1[c1]=i;
+                c1++;
+            }
+            else{
+                a2[c2]=i;
+                c2++;
+            }
+        }
+        // printing
+        cout<<c1<<"\n";
+        for(int i=0;i<c1;i++) cout<<a1[i]<<" ";
+        cout<<"\n"<<c2<<"\n";
+        for(int i=0;i<c2;i++) cout<<a2[i]<<" ";
+    }
+    else{
+        cout<<"NO";
+    }
+ 
+    return 0;
+}
